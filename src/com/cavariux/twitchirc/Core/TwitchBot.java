@@ -28,7 +28,7 @@ public class TwitchBot {
 	private String oauth_key;
 	private BufferedWriter writer;
 	private BufferedReader reader;
-	private ArrayList<String> channels = new ArrayList<String>();
+	private ArrayList<Channel> channels = new ArrayList<Channel>();
 	private String version = "v1.0-Beta";
 	private boolean stopped = true;
 	private String commandTrigger = "!";
@@ -266,6 +266,14 @@ public class TwitchBot {
 		this.sendRawMessage("PART " + cnl);
 		this.channels.remove(cnl);
 		System.out.println("> PART " + channel);
+	}
+	
+	/**
+	 *  Returns all channels client is connected to.
+	 *  @return ArrayList<Channel>
+	 */
+	public final void getChannels(){
+		return channels;
 	}
 	
 	/**
